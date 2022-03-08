@@ -16,8 +16,11 @@
     <p><input type="text" name="pwd" placeholder="password"/></p>
     <p><input type="text" name="email" placeholder="Email"/></p>
     <p>Gender<input type="radio" name="lname" placeholder="password"/>Male
-        <input type="radio" name="lname" placeholder="password"/>Female</p>
-
+        <input type="radio" name="lname" />Female</p>
+    <p>
+        <input id="birthday" type="date" placeholder="Date of Birth(yyyy-mm-dd)">
+        <label id="birthday_trip"></label>
+    </p>
     <input type="button" value="Submit" />
 </form>
 
