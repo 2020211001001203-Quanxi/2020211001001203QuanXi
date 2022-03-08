@@ -19,7 +19,7 @@
         <input type="radio" name="lname" />Female</p>
     <p>
         <input id="birthday" type="date" placeholder="Date of Birth(yyyy-mm-dd)">
-        <label id="birthday_trip"></label>
+
     </p>
     <input type="button" value="Submit" />
 </form>
