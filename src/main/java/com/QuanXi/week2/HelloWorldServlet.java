@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
 
 public class HelloWorldServlet extends HttpServlet {
@@ -18,12 +18,12 @@ public class HelloWorldServlet extends HttpServlet {
         PrintWriter writer= response.getWriter();
         Date d = new Date();
 
-        writer.println("Name: Quanxi");
+        writer.println("Name: QuanXi");
         writer.println("ID: 2020211001001203");
         writer.println(d);
 
         //that all
-        //next we need to tell about this serlvet to tomcat -how ? -web.xml
+        //next we need to tell about this servlet to tomcat -how ? -web.xml
 
 
     }
