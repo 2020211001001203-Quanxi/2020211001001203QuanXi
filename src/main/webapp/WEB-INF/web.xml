@@ -3,17 +3,4 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-        <servlet>
-            <servlet-name>Qx </servlet-name> <!--give your name-->
-            <servlet-class>com.QuanXi.week2.HelloWorldServlet</servlet-class>  <!--package +name of servlet-->
-        </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>Qx</servlet-name><!--give any name-->
-        <url-pattern>/hello</url-pattern> <!-- url must start with/ -->
-    </servlet-mapping>
-
-    <!-- x=5, a=x, so we can say a=5
-    so /hello==com.QuanXi.week2.HelloWorldServlet -->
-
 </web-app>
