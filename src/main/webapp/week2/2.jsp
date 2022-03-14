@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<form>
+<form method="post">
     <p><input type="text" name="user" placeholder="Username"/></p>
     <p><input type="text" name="pwd" placeholder="password"/></p>
     <p><input type="text" name="email" placeholder="Email"/></p>
@@ -19,7 +19,7 @@
         <input type="radio" name="lname" />Female</p>
     <p>
         <input id="birthday" type="date" placeholder="Date of Birth(yyyy-mm-dd)">
-        <label id="birthday_trip"></label>
+
     </p>
     <input type="button" value="Submit" />
 </form>
