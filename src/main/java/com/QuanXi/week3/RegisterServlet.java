@@ -16,7 +16,8 @@ public class RegisterServlet extends HttpServlet {
 //    Statement stmt=null;
 
     @Override
-    public void init(){
+    public void init() throws  ServletException{
+        super.init();
         ServletContext context = getServletContext();
         String driver = context.getInitParameter("driver");
         String url = context.getInitParameter("url");
@@ -52,8 +53,6 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //request come here- <from method=post>
         //get parameter from request
-
-
         PrintWriter writer = response.getWriter();
         String username = request.getParameter("username");//name of input type
         String password = request.getParameter("password");
@@ -65,21 +64,24 @@ public class RegisterServlet extends HttpServlet {
         System.out.println(email);
         System.out.println(gender);
         System.out.println(birthDate);
-
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "insert into usertable values(?,?,?,?,?)";
         try {
-            String sql = "insert into usertable (Username,Password,Email,Gender,Birthdate) values(\'"+username+"\',\'"
-                    +password+"\',\'"+email+"\',\'"+gender+"\',\'"+birthDate+"\')";
-            // insert data into database
-            con.setAutoCommit(false);
-            PreparedStatement preparedStatement = con.prepareStatement(sql);
-            preparedStatement.executeUpdate();
-            con.commit();
+
+            ps=con.prepareStatement(sql);
+            ps.setString(1,username);
+            ps.setString(2,password);
+            ps.setString(3,email);
+            ps.setString(4,gender);
+            ps.setString(5,birthDate);
+            ps.executeUpdate();
             System.out.println("insert successfully");
             // select all rows from usertable
             sql = "select * from usertable";
             con.setAutoCommit(false);
-            preparedStatement = con.prepareStatement(sql);
-            ResultSet resultSet = preparedStatement.executeQuery();
+            ps = con.prepareStatement(sql);
+            ResultSet resultSet = ps.executeQuery();
             writer.println("<table border=\"1\">");
             writer.println("<tr>");
             writer.println("<th>ID</th>");
@@ -108,26 +110,6 @@ public class RegisterServlet extends HttpServlet {
         }
     }
 
- /*       try{
-
-            con= DriverManager.getConnection(url,username,password);
-            System.out.println("Connection --> in JDBCDemoServlet\"+con");
-            stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM usertable");
-            while (rs.next()) {
-                System.out.println(rs.getString("ID") + "\t"
-                        + rs.getString("UserName")+"\t"
-                        + rs.getString("Password")+"\t"
-                        + rs.getString("Email")+"\t"
-                        + rs.getString("Gender")+"\t"
-                        + rs.getString("Birthday"));
-            }
-
-
-        }catch(ClassNotFoundException | SQLException e)
-        {
-            e.printStackTrace();
-            System.out.print("SQL Server fault！"); }*/
 /*
             //print - write into response
         PrintWriter writer= response.getWriter();
