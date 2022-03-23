@@ -11,7 +11,7 @@
     </context-param>
     <context-param>
         <param-name>url</param-name>
-        <param-value>jdbc:sqlserver://localhost:1433; datebase=userdb;encrypt=false</param-value>
+        <param-value>jdbc:sqlserver://localhost:1433; database=userdb;encrypt=false</param-value>
     </context-param>
     <context-param>
         <param-name>username</param-name>
