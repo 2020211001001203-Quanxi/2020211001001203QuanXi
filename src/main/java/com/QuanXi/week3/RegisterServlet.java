@@ -70,6 +70,7 @@ public class RegisterServlet extends HttpServlet {
         try {
 
             ps=con.prepareStatement(sql);
+            System.out.println(ps);
             ps.setString(1,username);
             ps.setString(2,password);
             ps.setString(3,email);
@@ -78,7 +79,7 @@ public class RegisterServlet extends HttpServlet {
             ps.executeUpdate();
             System.out.println("insert successfully");
             // select all rows from usertable
-            sql = "select * from usertable";
+            sql = "select * from [usertable]";
             con.setAutoCommit(false);
             ps = con.prepareStatement(sql);
             ResultSet resultSet = ps.executeQuery();
