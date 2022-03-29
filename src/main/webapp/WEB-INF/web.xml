@@ -35,10 +35,14 @@
         <servlet-name>anyname</servlet-name>
         <servlet-class>com.QuanXi.week2.HelloWorldServlet</servlet-class>
     </servlet>
-<!--    <servlet>
-        <servlet-name>LifeCycleServlet</servlet-name>
-        <servlet-class>com.QuanXi.week3.LifeCycleServlet</servlet-class>
-    </servlet>-->
+<!--    <servlet>-->
+<!--        <servlet-name>LoginServlet</servlet-name>-->
+<!--        <servlet-class>com.QuanXi.week5.LoginServlet</servlet-class>-->
+<!--    </servlet>-->
+    <!--    <servlet>
+            <servlet-name>LifeCycleServlet</servlet-name>
+            <servlet-class>com.QuanXi.week3.LifeCycleServlet</servlet-class>
+        </servlet>-->
 <!--    <servlet>
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.QuanXi.week3.RegisterServlet</servlet-class>
