@@ -18,7 +18,7 @@ public class RegisterServlet extends HttpServlet {
     @Override
     public void init() throws  ServletException{
         super.init();
-        ServletContext context = getServletContext();
+        /*ServletContext context = getServletContext();
         String driver = context.getInitParameter("driver");
         String url = context.getInitParameter("url");
         String username = context.getInitParameter("username");
@@ -35,17 +35,14 @@ public class RegisterServlet extends HttpServlet {
 
         } catch (ClassNotFoundException | SQLException e ){
             e.printStackTrace();
-        }
+        }*/
 
-
+        con= (Connection) getServletContext().getAttribute("con"); //name of attribute
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter writer= response.getWriter();
-        writer.println("Name: QuanXi");
-        writer.println("ID: 2020211001001203");
-//        response.sendRedirect("./register.jsp");
+ doPost(request,response);
 
     }
 
@@ -65,7 +62,7 @@ public class RegisterServlet extends HttpServlet {
         System.out.println(gender);
         System.out.println(birthDate);
         PreparedStatement ps = null;
-        ResultSet rs = null;
+
         String sql = "insert into usertable values(?,?,?,?,?)";
         try {
 
@@ -76,14 +73,19 @@ public class RegisterServlet extends HttpServlet {
             ps.setString(3,email);
             ps.setString(4,gender);
             ps.setString(5,birthDate);
+
             ps.executeUpdate();
             System.out.println("insert successfully");
             // select all rows from usertable
-            sql = "select * from [usertable]";
+         /*   sql = "select * from [usertable]";
             con.setAutoCommit(false);
             ps = con.prepareStatement(sql);
-            ResultSet resultSet = ps.executeQuery();
-            writer.println("<table border=\"1\">");
+            ResultSet resultSet = ps.executeQuery();*/
+
+            // here is html code --- move these html code in a jsp page - userList.jsp
+
+/*
+          writer.println("<table border=\"1\">");
             writer.println("<tr>");
             writer.println("<th>ID</th>");
             writer.println("<th>username</th>");
@@ -106,6 +108,24 @@ public class RegisterServlet extends HttpServlet {
             con.commit();
 
             writer.close();
+*/
+
+            //use request attribute
+            //set rs into request attribute
+            con.commit();
+           // request.setAttribute("resultSetname",resultSet); //name - String , value - any type (object)
+
+
+            //request.getRequestDispatcher("userList.jsp").forward(request,response);
+            //at this point request given to userList.jsp
+            // url doesnot change
+            //no more here
+
+            //System.out.println("i am in RegisterServlet--> doPost()--> after forward()"); //no see this line
+
+            // ok -done
+            //after register a new user - user can login
+            response.sendRedirect("Login.jsp");
         } catch (Exception e) {
             e.printStackTrace();
         }

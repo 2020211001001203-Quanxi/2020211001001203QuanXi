@@ -9,6 +9,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <title>MyEclipse</title>
 <%@include file="header.jsp"%>
+<%
+    if(!(request.getAttribute("message")==null)){
+        //error
+        out.println(request.getAttribute("message"));
+    }
+%>
 <h1>Login</h1>
 
     <form method="post" action="login">

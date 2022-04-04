@@ -35,7 +35,11 @@
         <servlet-name>anyname</servlet-name>
         <servlet-class>com.QuanXi.week2.HelloWorldServlet</servlet-class>
     </servlet>
-<!--    <servlet>-->
+  <!--  <servlet>
+        <servlet-name>RedirectServlet</servlet-name>
+        <servlet-class>com.QuanXi.week6.RedirectServlet</servlet-class>
+    </servlet>-->
+    <!--    <servlet>-->
 <!--        <servlet-name>LoginServlet</servlet-name>-->
 <!--        <servlet-class>com.QuanXi.week5.LoginServlet</servlet-class>-->
 <!--    </servlet>-->
