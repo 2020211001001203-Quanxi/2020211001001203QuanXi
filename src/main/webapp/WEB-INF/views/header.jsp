@@ -24,7 +24,7 @@
                             border-top-width:0px;
                             border-color:black;" align="center">
      <a style="color:white;" href="home">Home</a>  <!-- request come to controller - HomeServlet-->
-   - <a style="color:white;" href="Login.jsp">Login</a>
+   - <a style="color:white;" href="login">Login</a> <!-- request comet to controller - LoginServlet -->
    - <a style="color:white;" href="productList">Product</a>
    - <a style="color:white;" href="#">FAQ</a>
    - <a style="color:white;" href="#">About</a>
