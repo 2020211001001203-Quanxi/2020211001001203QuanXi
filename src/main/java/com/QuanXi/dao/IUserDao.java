@@ -9,9 +9,9 @@ import java.util.List;
 
 //have all jdbc methods u need -select - update -delete - insert
 public interface IUserDao {
-    public boolean saveUser(Connection con, User user) throws SQLException;
-    public int deleteUser(Connection con, User user) throws SQLException;
-    public int updateUser(Connection con, User user) throws SQLException;
+    public User saveUser(Connection con, User user) throws SQLException;
+    public User deleteUser(Connection con, User user) throws SQLException;
+    public User updateUser(Connection con, User user) throws SQLException;
 
     //select
     public User findById(Connection con, Integer id) throws SQLException;
