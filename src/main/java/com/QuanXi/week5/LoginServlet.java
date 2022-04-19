@@ -68,20 +68,60 @@ public class LoginServlet extends HttpServlet {
         //use model and dao
 
 
-        UserDao userDao=new UserDao();
+
         try {
-            System.out.println(username);
+            //let change code to make mvc
+            UserDao userDao=new UserDao();
             User user= userDao.findByUsernamePassword(con,username,password); //this method use for login
-            System.out.println(user);
 
             if(user!=null){
-                //valid
-                //set user into request
+                //valid--login
+                //week 8 code - demo #1- use cookie for session
+               /* //create cookie
+                //step 1 : create an object of cookie class
+                Cookie c=new Cookie("sessionid",""+user.getId()); // sessionid = user-id
+                //step 2: set age of cookie
+                c.setMaxAge(10*60); //in sec -10min -7 days - 7*24*60*60
+                //step 3: add cookie into response
+                response.addCookie(c);
+
                 request.setAttribute("user",user); //get user info in jsp
+                request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);*/
+
+                String rememberMe=request.getParameter("rememberMe"); //1=checked,null if checked
+                if(rememberMe!=null && rememberMe.equals("1")){
+                    //want to remember me
+                    //create 3 cookies
+                    Cookie usernameCookie=new Cookie("cUsername",user.getUsername());
+                    Cookie passwordCookie=new Cookie("cPassword",user.getUsername());
+                    Cookie rememberMeCookie=new Cookie("cRememberMe",user.getUsername());
+
+                    //set age of cookies
+                    usernameCookie.setMaxAge(5); //5 sec - test ---15days = 60*60*24*15
+                    passwordCookie.setMaxAge(5);
+                    rememberMeCookie.setMaxAge(5);
+
+                    //add 3 cookies into response
+                    response.addCookie(usernameCookie);
+                    response.addCookie(passwordCookie);
+                    response.addCookie(rememberMeCookie);
+
+                }
+                //create a session
+                HttpSession session= request.getSession(); //create a new session if session doesnot exist - otherwise return existing session
+                //check session id
+                System.out.println("session id--->"+session.getId()); //session id
+                //set time for session
+                session.setMaxInactiveInterval(10); //for 5 10section if request not come in - tomcat kill session - set 60*60* == 1h
+                //set user model into request
+                // week 8 0- change request(one page)  to session  -so we can get session attribute in many jsp page -login.jsp and header.jsp
+                session.setAttribute("user",user); //set user info in session
                 request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
+
+                //forward
             }else{
                 //invalid
-                request.setAttribute("message","Username or Password  223Error!!!");
+                request.setAttribute("message","Username or Password Error!!!");
                 request.getRequestDispatcher("WEB-INF/views/Login.jsp").forward(request,response);
             }
             //Forward - JSP

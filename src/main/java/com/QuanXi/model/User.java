@@ -9,7 +9,7 @@ public class User {
     private String password;
     private String email;
     private String gender;
-    private java.util.Date birthDate;
+    private String birthDate;
     // constructor
 
     public User() {
@@ -24,7 +24,7 @@ public class User {
         this.password = password;
         this.email = email;
         this.gender = gender;
-        this.birthDate = birthDate;
+        this.birthDate = String.valueOf(birthDate);
     }
 
     //getter and setter
@@ -70,11 +70,11 @@ public class User {
         this.gender = gender;
     }
 
-    public Date getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 

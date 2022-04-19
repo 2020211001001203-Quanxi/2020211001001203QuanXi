@@ -11,6 +11,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="2020211001001203Quanxi" target="1.8" />
+      <module name="zjl" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

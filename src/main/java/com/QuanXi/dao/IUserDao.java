@@ -11,7 +11,7 @@ import java.util.List;
 public interface IUserDao {
     public User saveUser(Connection con, User user) throws SQLException;
     public User deleteUser(Connection con, User user) throws SQLException;
-    public User updateUser(Connection con, User user) throws SQLException;
+    public int updateUser(Connection con, User user) throws SQLException;
 
     //select
     public User findById(Connection con, Integer id) throws SQLException;
