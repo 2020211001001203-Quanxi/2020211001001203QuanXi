@@ -35,10 +35,21 @@
         <servlet-name>anyname</servlet-name>
         <servlet-class>com.QuanXi.week2.HelloWorldServlet</servlet-class>
     </servlet>
-  <!--  <servlet>
-        <servlet-name>RedirectServlet</servlet-name>
-        <servlet-class>com.QuanXi.week6.RedirectServlet</servlet-class>
-    </servlet>-->
+
+                <!--Lab1-->
+    <servlet>
+        <servlet-name>LifeCycleServlet</servlet-name>
+        <servlet-class>com.QuanXi.Lab1.LifeCycleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LifeCycleServlet</servlet-name>
+        <url-pattern>/life</url-pattern>
+    </servlet-mapping>
+
+    <!--  <servlet>
+          <servlet-name>RedirectServlet</servlet-name>
+          <servlet-class>com.QuanXi.week6.RedirectServlet</servlet-class>
+      </servlet>-->
     <!--    <servlet>-->
 <!--        <servlet-name>LoginServlet</servlet-name>-->
 <!--        <servlet-class>com.QuanXi.week5.LoginServlet</servlet-class>-->
