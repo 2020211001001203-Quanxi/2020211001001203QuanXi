@@ -3,6 +3,7 @@ package com.QuanXi.model;
 import java.io.InputStream;
 
 public class Product {
+    public Product quantity;
     private int productId;
     private String productName;
     private String getProductName;

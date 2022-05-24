@@ -19,6 +19,7 @@ public class Exercise1Servlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         n++;
         PrintWriter out = response.getWriter();
+        out.println("<div style='text-align:center;'><h1>2020211001001203-QuanXi</h1></div>");
         out.println("<div style='text-align:center;'><h2>since loading,this servlet has been accessed "+n+" times !!</h2></div>");
 
     }
