@@ -9,11 +9,11 @@ import java.io.IOException;
 @WebFilter(filterName = "LoginFilter", urlPatterns = {"/lab2/welcome.jsp"})
 public class LoginFilter implements Filter {
     public void init(FilterConfig config) throws ServletException {
-        System.out.println("LoginFilter -> init()");
+        System.out.println("QuanXiLoginFilter -> after chain");
     }
 
     public void destroy() {
-        System.out.println("destroy -- > LoginFilter");
+        System.out.println("QuanXiLoginFilter--->before chain");
     }
 
     @Override
